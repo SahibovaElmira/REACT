@@ -2,6 +2,7 @@ import { useReducer, useState } from 'react';
 import React from 'react';
 const DECREMENET = "decrement";
 const INCREMENT ="increment";
+// INCREMENT and DECREMENT
 
 function  reducer (state, action) {
 
