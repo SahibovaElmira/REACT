@@ -1,14 +1,18 @@
-import { useReducer, useState } from 'react'
-import React from 'react'
+import { useReducer, useState } from 'react';
+import React from 'react';
+const DECREMENET = "decrement";
+const INCREMENT ="increment";
 
 function  reducer (state, action) {
-  // console.log(state,action);
-  // return {
-  //   counter:1,}
+
   switch (action.type){
-    case "increment":
+    case INCREMENT:
       return {
-        counter:state.counter + 1,
+        counter:state.counter + action.payload,
+      };
+    case DECREMENET:
+      return {
+        counter:state.counter - action.payload,
       
       }
   }
@@ -21,15 +25,37 @@ function App ()  {
     {
     counter:1,
   });
-  const handlerClick =()=> {dispatch(
-    { 
-    type:"increment",
-     payload: 1,
-});
-};
-
+  
 return(
-  <button onClick ={handlerClick} >Click "{state.counter}</button>
+  <div>
+ <button onClick ={()=>dispatch({type:DECREMENET,
+ payload:1
+
+})
+} >-1</button>
+ <button onClick ={()=>dispatch({type:DECREMENET,
+ payload:2
+
+})
+} >-2</button>
+
+ <span>{state.counter}</span>
+ <button onClick ={()=>dispatch({type:INCREMENT,
+ payload:1
+
+})
+} >+1</button>
+
+<button onClick ={()=>dispatch({type:INCREMENT,
+ payload:2
+
+})
+} >+2</button>
+
+
+
+  </div>
+ 
 )
 };
 export default App
