@@ -2,11 +2,19 @@ import { useReducer, useState } from 'react'
 import React from 'react'
 
 function  reducer (state, action) {
-  return {
-    counter:1,
+  // console.log(state,action);
+  // return {
+  //   counter:1,}
+  switch (action.type){
+    case "increment":
+      return {
+        counter:state.counter + 1,
+      
+      }
+  }
     
   };
-}
+
 
 function App ()  {
   const [state, dispatch]= useReducer(reducer, 
