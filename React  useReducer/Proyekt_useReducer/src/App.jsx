@@ -1,24 +1,9 @@
 import { useReducer, useState } from 'react';
 import React from 'react';
-const DECREMENET = "decrement";
-const INCREMENT ="increment";
-// INCREMENT and DECREMENT
+import reducer from './reducer';
+import { increment,decrement } from './actions';
 
-function  reducer (state, action) {
 
-  switch (action.type){
-    case INCREMENT:
-      return {
-        counter:state.counter + action.payload,
-      };
-    case DECREMENET:
-      return {
-        counter:state.counter - action.payload,
-      
-      }
-  }
-    
-  };
 
 
 function App ()  {
@@ -29,29 +14,13 @@ function App ()  {
   
 return(
   <div>
- <button onClick ={()=>dispatch({type:DECREMENET,
- payload:1
-
-})
-} >-1</button>
- <button onClick ={()=>dispatch({type:DECREMENET,
- payload:2
-
-})
-} >-2</button>
+ <button onClick ={()=>dispatch(decrement(1))} >-1</button>
+ <button onClick ={()=>dispatch(decrement(2))} >-2</button>
 
  <span>{state.counter}</span>
- <button onClick ={()=>dispatch({type:INCREMENT,
- payload:1
+ <button onClick ={()=>dispatch(increment(1))} >+1</button>
 
-})
-} >+1</button>
-
-<button onClick ={()=>dispatch({type:INCREMENT,
- payload:2
-
-})
-} >+2</button>
+<button onClick ={()=>dispatch(increment(2))} >+2</button>
 
 
 
